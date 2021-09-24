@@ -4,14 +4,16 @@ using AoiSoraShop.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AoiSoraShop.Data.Migrations
 {
     [DbContext(typeof(AoiShopDbContext))]
-    partial class AoiShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210924033541_AspNetCoreIdentityDb")]
+    partial class AspNetCoreIdentityDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,16 +70,6 @@ namespace AoiSoraShop.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "f180e141-854c-4a51-a7cd-13d233c503ed",
-                            Description = "Administrator role",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("AoiSoraShop.Data.Entities.AppUser", b =>
@@ -144,27 +136,6 @@ namespace AoiSoraShop.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "2f775722-1062-4d91-89e0-f1cdd2331278",
-                            Dob = new DateTime(1991, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "vanduy9491@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Duy",
-                            LastName = "Tran",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "tedu.international@gmail.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDa/6kZpCD+F5PqzoNDmHzhmB1DH/G6LnZ1vahSQ+AzGsDE6O8PG/o7xONu2MzmrQQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("AoiSoraShop.Data.Entities.Cart", b =>
@@ -318,7 +289,7 @@ namespace AoiSoraShop.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 9, 24, 10, 44, 20, 588, DateTimeKind.Local).AddTicks(3476));
+                        .HasDefaultValue(new DateTime(2021, 9, 24, 10, 35, 41, 322, DateTimeKind.Local).AddTicks(3996));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
@@ -437,7 +408,7 @@ namespace AoiSoraShop.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 9, 24, 10, 44, 20, 604, DateTimeKind.Local).AddTicks(1510),
+                            DateCreated = new DateTime(2021, 9, 24, 10, 35, 41, 332, DateTimeKind.Local).AddTicks(3021),
                             Description = "Áo sơ mi trắng",
                             Details = "Áo sơ mi trắng",
                             OriginalPrice = 1000000m,
@@ -452,7 +423,7 @@ namespace AoiSoraShop.Data.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2021, 9, 24, 10, 44, 20, 604, DateTimeKind.Local).AddTicks(3986),
+                            DateCreated = new DateTime(2021, 9, 24, 10, 35, 41, 332, DateTimeKind.Local).AddTicks(5307),
                             Description = "Áo thun trắng",
                             Details = "Áo thun trắng",
                             OriginalPrice = 1000000m,
@@ -731,13 +702,6 @@ namespace AoiSoraShop.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
-                            RoleId = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
